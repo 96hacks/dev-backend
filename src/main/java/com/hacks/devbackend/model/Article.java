@@ -3,25 +3,34 @@ package com.hacks.devbackend.model;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.OrderBy;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 public class Article {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	@OrderBy("name asc")
 	private String name;
+	@OneToOne
+	@PrimaryKeyJoinColumn
+	private User author;
 	private String category;
 	private Date addedDate;
 	private String intro;
 	private int starsCount;
-	@Embedded
-	private List<Comment> comments;
-	@Embedded
+	//@OneToMany
+	//@PrimaryKeyJoinColumn
+	//private List<Comment> comments;
+	@OneToOne
+	@PrimaryKeyJoinColumn
 	private Description description;
 
 	public String getName() {
@@ -72,14 +81,6 @@ public class Article {
 		this.starsCount = starsCount;
 	}
 
-	public List<Comment> getComments() {
-		return comments;
-	}
-
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
-	}
-
 	public Description getDescription() {
 		return description;
 	}
@@ -87,5 +88,19 @@ public class Article {
 	public void setDescription(Description description) {
 		this.description = description;
 	}
+
+	public User getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(User author) {
+		this.author = author;
+	}
+
+	/*
+	 * public List<Comment> getComments() { return comments; }
+	 * 
+	 * public void setComments(List<Comment> comments) { this.comments = comments; }
+	 */
 
 }

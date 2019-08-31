@@ -2,21 +2,34 @@ package com.hacks.devbackend.model;
 
 import java.util.Date;
 
-import javax.persistence.Embeddable;
-@Embeddable
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OrderBy;
+@Entity
 public class Comment {
-	private String commentor;
+	@Id
+	@OrderBy("id asc")
+	private int id;
+	private User user;
 	private Date commentedDate;
 	private String description;
 	private int likes;
 	private int disLikes;
 
-	public String getCommentor() {
-		return commentor;
+	public int getId() {
+		return id;
 	}
 
-	public void setCommentor(String commentor) {
-		this.commentor = commentor;
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public Date getCommentedDate() {

@@ -1,9 +1,12 @@
 package com.hacks.devbackend.model;
 
-import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-@Embeddable
+@Entity
 public class Description {
+	@Id
+	private int id;
 	private String points;
 	private String paragraphs;
 
@@ -21,6 +24,14 @@ public class Description {
 
 	public void setParagraphs(String paragraphs) {
 		this.paragraphs = paragraphs;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }
