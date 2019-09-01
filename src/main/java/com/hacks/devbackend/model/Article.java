@@ -1,106 +1,62 @@
 package com.hacks.devbackend.model;
 
-import java.util.Date;
-import java.util.List;
+import java.sql.Blob;
+import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.OrderBy;
-import javax.persistence.PrimaryKeyJoinColumn;
-
+import javax.persistence.Table;
 @Entity
+@Table(name="article")
 public class Article {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-	@OrderBy("name asc")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "article_id", updatable = false, nullable = false)
+	private int article_id;
 	private String name;
-	@OneToOne
-	@PrimaryKeyJoinColumn
-	private User author;
 	private String category;
-	private Date addedDate;
-	private String intro;
-	private int starsCount;
-	//@OneToMany
-	//@PrimaryKeyJoinColumn
-	//private List<Comment> comments;
-	@OneToOne
-	@PrimaryKeyJoinColumn
-	private Description description;
-
+	private Date added_date;
+	private int likes;
+	private Blob background_image;
+	
+	public int getArticle_id() {
+		return article_id;
+	}
+	public void setArticle_id(int article_id) {
+		this.article_id = article_id;
+	}
 	public String getName() {
 		return name;
 	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
 	public String getCategory() {
 		return category;
 	}
-
 	public void setCategory(String category) {
 		this.category = category;
 	}
-
-	public Date getAddedDate() {
-		return addedDate;
+	public Date getAdded_date() {
+		return added_date;
 	}
-
-	public void setAddedDate(Date addedDate) {
-		this.addedDate = addedDate;
+	public void setAdded_date(Date added_date) {
+		this.added_date = added_date;
 	}
-
-	public String getIntro() {
-		return intro;
+	public int getLikes() {
+		return likes;
 	}
-
-	public void setIntro(String intro) {
-		this.intro = intro;
+	public void setLikes(int likes) {
+		this.likes = likes;
 	}
-
-	public int getStarsCount() {
-		return starsCount;
+	public Blob getBackground_image() {
+		return background_image;
 	}
-
-	public void setStarsCount(int starsCount) {
-		this.starsCount = starsCount;
+	public void setBackground_image(Blob background_image) {
+		this.background_image = background_image;
 	}
-
-	public Description getDescription() {
-		return description;
-	}
-
-	public void setDescription(Description description) {
-		this.description = description;
-	}
-
-	public User getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(User author) {
-		this.author = author;
-	}
-
-	/*
-	 * public List<Comment> getComments() { return comments; }
-	 * 
-	 * public void setComments(List<Comment> comments) { this.comments = comments; }
-	 */
-
+	
 }
