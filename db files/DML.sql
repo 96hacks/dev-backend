@@ -1,3 +1,10 @@
+select * from article;
+select * from author;
+select * from comment;
+select * from image;
+select * from user;
+select * from description;
+
 insert into article values(
 100001,
 "The Secret to Success",
