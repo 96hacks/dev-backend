@@ -1,7 +1,5 @@
 package com.hacks.devbackend.model;
 
-import java.sql.Blob;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +19,7 @@ public class Description {
 	@JoinColumn(name = "article_id")
 	@OneToOne
 	private Article article;// foreign key references article(article_id)
-	private Blob data;
+	private String data;
 	private String image_id;
 
 	public int getDescription_id() {
@@ -40,11 +38,11 @@ public class Description {
 		this.article = article;
 	}
 
-	public Blob getData() {
+	public String getData() {
 		return data;
 	}
 
-	public void setData(Blob data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 
