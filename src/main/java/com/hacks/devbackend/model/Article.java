@@ -1,8 +1,6 @@
 package com.hacks.devbackend.model;
 
-import java.sql.Blob;
 import java.sql.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 @Entity
 @Table(name="article")
-public class Article {
+public class Article{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "article_id", updatable = false, nullable = false)
@@ -20,7 +18,7 @@ public class Article {
 	private String category;
 	private Date added_date;
 	private int likes;
-	private Blob background_image;
+	private String background_image;
 	
 	public int getArticle_id() {
 		return article_id;
@@ -52,10 +50,10 @@ public class Article {
 	public void setLikes(int likes) {
 		this.likes = likes;
 	}
-	public Blob getBackground_image() {
+	public String getBackground_image() {
 		return background_image;
 	}
-	public void setBackground_image(Blob background_image) {
+	public void setBackground_image(String background_image) {
 		this.background_image = background_image;
 	}
 	

@@ -1,5 +1,7 @@
 package com.hacks.devbackend.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,6 +23,10 @@ public class ArticleController {
 	public Article getArticle(@PathVariable("id") int id) {
 		System.out.println("article id:"+id);
 		return articleService.getArticleById(id);
+	}
+	@RequestMapping(method = RequestMethod.GET,value = "/all")
+	public List<Article> getArticles(){
+		return articleService.getArticles();
 	}
 	
 }

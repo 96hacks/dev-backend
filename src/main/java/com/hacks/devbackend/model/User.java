@@ -1,15 +1,18 @@
 package com.hacks.devbackend.model;
 
 import java.sql.Date;
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "user")
 public class User {
 	@Id
-	@Column(name = "user_id", updatable = false, nullable = false)
-	private String user_id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int user_id;
 	private String name;
 	private Date dob;
 	private String mobile;
@@ -18,11 +21,11 @@ public class User {
 	private int comments;
 	private int read_count;
 
-	public String getUser_id() {
+	public int getUser_id() {
 		return user_id;
 	}
 
-	public void setUser_id(String user_id) {
+	public void setUser_id(int user_id) {
 		this.user_id = user_id;
 	}
 

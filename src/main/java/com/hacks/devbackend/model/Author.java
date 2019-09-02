@@ -1,10 +1,13 @@
 package com.hacks.devbackend.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,8 +17,12 @@ public class Author {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(updatable = false, nullable = false)
 	private int id;
-	private int article_id;// references article(article_id)
-	private int user_id;// references user(user_id)
+	@JoinColumn(name = "article_id")
+	@OneToOne(cascade = CascadeType.ALL)
+	private Article article;// references article(article_id)
+	@JoinColumn(name = "user_id")
+	@OneToOne(cascade = CascadeType.ALL)
+	private User user;// references user(user_id)
 
 	public int getId() {
 		return id;
@@ -25,20 +32,20 @@ public class Author {
 		this.id = id;
 	}
 
-	public int getArticle_id() {
-		return article_id;
+	public Article getArticle() {
+		return article;
 	}
 
-	public void setArticle_id(int article_id) {
-		this.article_id = article_id;
+	public void setArticle(Article article) {
+		this.article = article;
 	}
 
-	public int getUser_id() {
-		return user_id;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

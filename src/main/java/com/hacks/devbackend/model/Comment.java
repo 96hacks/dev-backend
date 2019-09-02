@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Comment {
@@ -13,8 +16,12 @@ public class Comment {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "comment_id", updatable = false, nullable = false)
 	private int comment_id;
-	private int article_id;// references article(article_id)
-	private String user_id;// references user(user_id)
+	@JoinColumn(name = "article_id")
+	@OneToOne
+	private Article article;// references article(article_id)
+	@JoinColumn(name = "user_id")
+	@OneToOne
+	private User user;// references user(user_id)
 	private Date commented_date;
 	private String description;
 	private int likes;
@@ -28,20 +35,20 @@ public class Comment {
 		this.comment_id = comment_id;
 	}
 
-	public int getArticle_id() {
-		return article_id;
+	public Article getArticle() {
+		return article;
 	}
 
-	public void setArticle_id(int article_id) {
-		this.article_id = article_id;
+	public void setArticle(Article article) {
+		this.article = article;
 	}
 
-	public String getUser_id() {
-		return user_id;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public Date getCommented_date() {
