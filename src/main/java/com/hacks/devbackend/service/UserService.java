@@ -23,4 +23,10 @@ public class UserService {
 		return users.stream().filter(item -> item.getUser_id()==id).findAny().get();
 	}
 
+	public List<User> getUsers() {
+		List<User> users = new ArrayList<User>();
+		userRepository.findAll().forEach(item -> users.add(item));
+		return users;
+	}
+
 }
