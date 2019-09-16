@@ -2,13 +2,15 @@ package com.hacks.devbackend.serviceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.hacks.devbackend.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.hacks.devbackend.model.Comment;
 import com.hacks.devbackend.repository.CommentRepository;
 
 @Service
-public class CommentServiceImpl {
+public class CommentServiceImpl implements CommentService {
 	@Autowired
 	private CommentRepository commentRepository;
 

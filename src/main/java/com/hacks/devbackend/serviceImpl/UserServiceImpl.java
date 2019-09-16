@@ -2,13 +2,15 @@ package com.hacks.devbackend.serviceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.hacks.devbackend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.hacks.devbackend.model.User;
 import com.hacks.devbackend.repository.UserRepository;
 
 @Service
-public class UserServiceImpl {
+public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserRepository userRepository;
 
