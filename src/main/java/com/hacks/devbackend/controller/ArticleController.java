@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hacks.devbackend.model.Article;
 import com.hacks.devbackend.service.ArticleService;
 @RestController
-@RequestMapping(value = "article")
+@RequestMapping(value = "articles")
 public class ArticleController {
 	@Autowired
 	private ArticleService articleService;
