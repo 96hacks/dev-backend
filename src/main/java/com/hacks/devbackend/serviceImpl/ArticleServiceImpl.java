@@ -2,9 +2,16 @@ package com.hacks.devbackend.serviceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.transaction.Transactional;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
 import com.hacks.devbackend.model.Article;
 import com.hacks.devbackend.repository.ArticleRepository;
 import com.hacks.devbackend.service.ArticleService;
@@ -15,8 +22,10 @@ public class ArticleServiceImpl implements ArticleService {
 	private ArticleRepository articleRepository;
 
 	@Transactional
-	public int addArticle(Article article) {
-		return articleRepository.save(article).getArticle_id();
+	public ResponseEntity<Article> addArticle(Article article) {
+		return ResponseEntity.status(HttpStatus.CREATED)
+		.body(articleRepository.save(article));
+		
 	}
 
 	@Transactional
