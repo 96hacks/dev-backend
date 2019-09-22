@@ -1,0 +1,38 @@
+#############   services     #############################################
+--------------------------------0-----------------------------------------
+method-POST
+URI-localhost:8080/articles/add
+Body:
+{
+    "name": "the secredt to success",
+    "category": "personality development",
+    "added_date": "2019-09-16",
+    "likes": 0,
+    "data": "this data contain html content and images"
+}
+--------------------------------0-----------------------------------------
+method-GET
+URI-localhost:8080/articles/{article_id}
+body:
+no body
+--------------------------------0-----------------------------------------
+method-GET
+URI-localhost:8080/articles/all
+body:
+no body
+--------------------------------0-----------------------------------------
+method-POST
+URI-localhost:8080/articles/{article_id}/comments/add
+body:
+{
+	"commented_date":"2019-09-16",
+	"description":"its all bullshit",
+	"likes":0,
+	"dis_likes":0
+}
+--------------------------------0-----------------------------------------
+method-GET
+URI-localhost:8080/articles/{article_id}/comments/all
+body:
+no body
+--------------------------------0-----------------------------------------
