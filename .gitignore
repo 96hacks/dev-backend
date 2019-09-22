@@ -33,3 +33,6 @@ build/
 *.class
 /bin/
 /.mvn/
+
+
+logging.log
